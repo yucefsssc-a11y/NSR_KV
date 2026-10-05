@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSR KV | التجهيزات والمعدات الأصلية</title>
+    
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Firebase SDK (Version 9) for Realtime Cloud Sync -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+        import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDummyKey_NSR_KV_2026",
+            authDomain: "nsr-kv-store.firebaseapp.com",
+            projectId: "nsr-kv-store",
+            storageBucket: "nsr-kv-store.appspot.com",
+            messagingSenderId: "109201650",
+            appId: "1:109201650:web:nsrkv2026app"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        window.db = getFirestore(app);
+        window.doc = doc;
+        window.setDoc = setDoc;
+        window.onSnapshot = onSnapshot;
+    </script>
+
+    <style>
+        :root {
+            --bg-color: #060911;
+            --card-bg: rgba(18, 25, 42, 0.7);
+            --card-border: rgba(255, 255, 255, 0.12);
+            --text-color: #f1f5f9;
+            --accent-yellow: #ffc107;
+            --accent-red: #e63946;
+            --accent-red-glow: rgba(230, 57, 70, 0.4);
+            --green-color: #25d366;
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        /* Anti-Copy Protection CSS */
+        *, *::before, *::after {
+            user-select: none !important;
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            -webkit-touch-callout: none !important;
+        }
+
+        /* Allow typing inside form input fields */
+        input, textarea, select {
+            user-select: text !important;
+            -webkit-user-select: text !important;
+            -moz-user-select: text !important;
+            -ms-user-select: text !important;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(6, 9, 17, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--card-border);
+            padding: 12px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-red);
+            box-shadow: 0 0 12px var(--accent-red-glow);
+            object-fit: cover;
+        }
+
+        .logo-text h1 {
+            font-size: 22px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: var(--accent-red);
+        }
+
+        .logo-text p {
+            font-size: 11px;
+            color: var(--accent-yellow);
+        }
+
+        .admin-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--card-border);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 700;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .admin-btn:hover {
+            background: var(--accent-red);
+            border-color: var(--accent-red);
+            box-shadow: 0 0 15px var(--accent-red-glow);
+        }
+
+        .hero {
+            padding: 35px 20px;
+            margin: 20px 0;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-yellow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 15px;
+            color: #cbd5e1;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .badges-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 193, 7, 0.12);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            color: var(--accent-yellow);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .badge-green {
+            background: rgba(37, 211, 102, 0.12);
+            border-color: rgba(37, 211, 102, 0.3);
+            color: var(--green-color);
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 800;
+            margin: 30px 0 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-right: 4px solid var(--accent-red);
+            padding-right: 12px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: var(--glass-shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-badge-top {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-red);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 800;
+            z-index: 2;
+            box-shadow: 0 0 10px var(--accent-red-glow);
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            border-radius: 14px;
+            overflow: hidden;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 12px;
+        }
+
+        .main-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .main-img {
+            transform: scale(1.05);
+        }
+
+        .thumbnails-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+
+        .thumb {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            opacity: 0.6;
+            transition: all 0.2s;
+            background: #000;
+        }
+
+        .thumb.active, .thumb:hover {
+            border-color: var(--accent-yellow);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .product-desc {
+            font-size: 13px;
+            color: #94a3b8;
+            line-height: 1.5;
+            margin-bottom: 14px;
+            flex-grow: 1;
+        }
+
+        .highlight-feature {
+            background: rgba(255, 193, 7, 0.1);
+            border-right: 3px solid var(--accent-yellow);
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--accent-yellow);
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .price-box {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .price-amount {
+            font-size: 26px;
+            font-weight: 900;
+            color: var(--accent-yellow);
+        }
+
+        .price-currency {
+            font-size: 14px;
+            color: #cbd5e1;
+            font-weight: 700;
+        }
+
+        .btn-order {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-red) 0%, #b91c1c 100%);
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px var(--accent-red-glow);
+        }
+
+        .btn-order:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--accent-red-glow);
+        }
+
+        .guarantee-box {
+            margin: 40px 0;
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(18, 25, 42, 0.8) 100%);
+            border: 2px solid rgba(37, 211, 102, 0.4);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.15);
+        }
+
+        .guarantee-icon {
+            font-size: 40px;
+            color: var(--green-color);
+            margin-bottom: 10px;
+        }
+
+        .guarantee-box h3 {
+            font-size: 22px;
+            color: #fff;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .guarantee-box p {
+            font-size: 14px;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .checkout-section {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0 50px;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .checkout-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .checkout-form {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 13px;
+            font-weight: 700;
+            color: #cbd5e1;
+        }
+
+        .form-control {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--card-border);
+            color: #fff;
+            padding: 12px 15px;
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-yellow);
+        }
+
+        .order-summary {
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 10px;
+            border: 1px dashed var(--card-border);
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: 900;
+            color: var(--accent-yellow);
+            border-top: 1px solid var(--card-border);
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-submit-order {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: #fff;
+            border: none;
+            padding: 16px;
+            border-radius: 14px;
+            font-size: 18px;
+            font-weight: 900;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-submit-order:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+        }
+
+        .float-wa {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background: #25d366;
+            color: #fff;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.6);
+            z-index: 99;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .float-wa:hover {
+            transform: scale(1.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #0f172a;
+            border: 1px solid var(--card-border);
+            max-width: 800px;
+            margin: 40px auto;
+            border-radius: 20px;
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: #94a3b8;
+            cursor: pointer;
+        }
+
+        .admin-product-row {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--card-border);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid var(--card-border);
+            color: #64748b;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <header>
+        <div class="container nav-content">
+            <div class="logo-box">
+                <img src="1000014516.jpg" alt="NSR KV Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/100/111827/ffc107?text=NSR+KV'">
+                <div class="logo-text">
+                    <h1>NSR <span>KV</span></h1>
+                    <p>معدات وتجهيزات أصلية ⚡</p>
+                </div>
+            </div>
+            <button class="admin-btn" onclick="openAdminModal()">
+                <i class="fa-solid fa-lock"></i> لوحة التحكم
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h2>مرحباً بكم في متجر NSR KV الرسمي</h2>
+            <p>أجود المعدات والأكسسوارات الأصلية مع ضمانة شاملة وتوصيل مجاني لجميع المدن المغربية 🇲🇦</p>
+            <div class="badges-row">
+                <div class="badge badge-green"><i class="fa-solid fa-truck-fast"></i> توصيل مجاني لكل المغرب</div>
+                <div class="badge"><i class="fa-solid fa-hand-holding-dollar"></i> الدفع عند الاستلام بعد المعاينة</div>
+                <div class="badge badge-green"><i class="fa-solid fa-shield-halved"></i> ضمانة أسبوع كامل (7 أيام)</div>
+            </div>
+        </section>
+
+        <section class="guarantee-box">
+            <i class="fa-solid fa-shield-virus guarantee-icon"></i>
+            <h3>ضمانة الجودة وراحة بالَك لمدة أسبوع كامل (7 أيام) 🛡️</h3>
+            <p>سلعتنا أصلية وتدوم طويلاً! إيلا شريتي من عندنا ولقيتي أي مشكل فـ السلعة خلال أسبوع كامل، كنبدلوها ليك فوراً أو كنردّو ليك فلوسك كاملة بدون أي معاطية. قلّب سلعتك وتأكد منها عند الاستلام عاد تخلّص!</p>
+        </section>
+
+        <h3 class="section-title"><i class="fa-solid fa-bolt" style="color: var(--accent-yellow);"></i> المنتجات الرئيسية</h3>
+        <div class="products-grid" id="mainProductsGrid"></div>
+
+        <h3 class="section-title" style="margin-top: 40px;"><i class="fa-solid fa-plug" style="color: var(--accent-red);"></i> الأكسسوارات وقطع الغيار</h3>
+        <div class="products-grid" id="accessoriesGrid"></div>
+
+        <section class="checkout-section" id="checkout">
+            <h3 class="section-title" style="margin-bottom: 20px;"><i class="fa-solid fa-cart-shopping"></i> تأكيد الطلب السريع (الدفع عند الاستلام)</h3>
+            
+            <form class="checkout-form" id="orderForm" onsubmit="handleOrderSubmit(event)">
+                <div class="form-group">
+                    <label>الاسم الكامل *</label>
+                    <input type="text" id="custName" class="form-control" placeholder="مثال: محمد العلوي" required>
+                </div>
+                <div class="form-group">
+                    <label>رقم الهاتف *</label>
+                    <input type="tel" id="custPhone" class="form-control" placeholder="مثال: 0612345678" required>
+                </div>
+                <div class="form-group full-width">
+                    <label>المدينة والعنوان بالكامل *</label>
+                    <input type="text" id="custAddress" class="form-control" placeholder="مثال: مراكش، سيدي يوسف بن علي..." required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>اختر المنتج / الأكسسوار المطلوب *</label>
+                    <select id="productSelect" class="form-control" onchange="updateSummary()" required></select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>الكمية *</label>
+                    <select id="quantitySelect" class="form-control" onchange="updateSummary()">
+                        <option value="1">1 قطعة</option>
+                        <option value="2">2 قطع</option>
+                        <option value="3">3 قطع</option>
+                        <option value="5">5 قطع</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <div class="order-summary">
+                        <div class="summary-item">
+                            <span>المنتج المحدد:</span>
+                            <span id="sumProdName">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>مصاريف التوصيل:</span>
+                            <span style="color: var(--green-color); font-weight: 700;">مجاناً (0 درهم)</span>
+                        </div>
+                        <div class="summary-total">
+                            <span>المجموع الإجمالي:</span>
+                            <span id="sumTotal">0 DH</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit-order">
+                    <i class="fa-brands fa-whatsapp"></i> تأكيد الطلب فوراً عبر الواتساب
+                </button>
+            </form>
+        </section>
+    </div>
+
+    <a href="#" id="floatWaBtn" class="float-wa" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <div class="modal" id="adminModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeAdminModal()">&times;</span>
+            <h2 style="margin-bottom: 15px; color: var(--accent-yellow);"><i class="fa-solid fa-sliders"></i> لوحة تحكم صاحب الموقع (Admin)</h2>
+            <p style="font-size: 13px; color: #94a3b8; margin-bottom: 20px;">يمكنك هنا تعديل الأسعار، الصور، رقم الواتساب، والمنتجات. سيتم التحديث فوراً لدى الجميع عبر السحابة.</p>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label>رقم الواتساب لاستلام الطلبات (بدون +)</label>
+                <input type="text" id="adminWhatsapp" class="form-control" value="212709201650">
+            </div>
+
+            <h4 style="margin: 20px 0 10px; border-bottom: 1px solid var(--card-border); padding-bottom: 5px;">إدارة المنتجات والأثمنة</h4>
+            <div id="adminProductsList"></div>
+
+            <button class="btn-order" style="width: 100%; margin-top: 15px; background: var(--green-color);" onclick="saveAdminChanges()">
+                <i class="fa-solid fa-floppy-disk"></i> حفظ ونشر التغييرات
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2026 NSR KV | التوصيل مجاني وضمانة 7 أيام</p>
+        <p style="margin-top: 5px; cursor: pointer; color: var(--accent-yellow);" onclick="openAdminModal()">[ دخول صاحب الموقع ]</p>
+    </footer>
+
+    <script>
+        // Anti-Copy & Anti-Inspect Code Protection
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('dragstart', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'a' || e.key === 'i') ||
+                e.key === 'F12' ||
+                (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
+                e.preventDefault();
+            }
+        });
+
+        const defaultStoreData = {
+            whatsapp: "212709201650",
+            products: [
+                {
+                    id: "v1",
+                    name: "V1 Matraque",
+                    category: "main",
+                    price: 350,
+                    highlight: "⚡ بطارية جبارة كتشد شحنة أكثر من أسبوع (+1 semaine charge)",
+                    desc: "النسخة الكلاسيكية المتينة ذات الهيكل المقاوم للصدمات. قوة عالية وصعقة ممتازة للأمان الشخصي مع بطارية تدوم أكثر من 7 أيام كاملة بشحنة واحدة.",
+                    badge: "الأكثر طلباً",
+                    images: [
+                        "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=600&q=80",
+                        "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80"
+                    ]
+                },
+                {
+                    id: "v2",
+                    name: "V2 Matraque المطور",
+                    category: "main",
+                    price: 350,
+                    highlight: "⚡ نفس القوة والفاعلية + شحنة تدوم أكثر من أسبوع (+1 semaine charge)",
+                    desc: "الجيل الجديد بتصميم عصري وقبضة مريحة. بنفس القوة والفاعلية 100% وبنفس الثمن، وتدوم شحنتها أكثر من أسبوع كامل بدون حاجة لإعادة الشحن.",
+                    badge: "ديزاين جديد",
+                    images: [
+                        "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
+                        "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=600&q=80"
+                    ]
+                },
+                {
+                    id: "m1000",
+                    name: "Module 1000KV الأصلي",
+                    category: "acc",
+                    price: 60,
+                    highlight: "⚡ موديول عالي الفولطية 1000000 Volt",
+                    desc: "موديول مولد شرارة عالي الفولطية أصلي مئة بالمئة لمشاريعك واختباراتك الكهربائية.",
+                    badge: "أصلي 100%",
+                    images: [
+                        "https://images.unsplash.com/photo-1608564697071-ddf911d81370?auto=format&fit=crop&w=600&q=80"
+                    ]
+                },
+                {
+                    id: "push_btn",
+                    name: "Push Button (زر انضغاطي)",
+                    category: "acc",
+                    price: 15,
+                    highlight: "زر تشغيل ناعم ومقاوم",
+                    desc: "زر انضغاطي عالي الجودة للتحكم المباشر والسريع بكفاءة متناهية.",
+                    badge: "قطع غيار",
+                    images: [
+                        "https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=600&q=80"
+                    ]
+                },
+                {
+                    id: "onoff_btn",
+                    name: "ON / OFF Button",
+                    category: "acc",
+                    price: 15,
+                    highlight: "زر القطع والأمان",
+                    desc: "مفتاح تشغيل وإيقاف حاسم لضمان الأمان والسلامة الكاملة لجميع أجهزتك.",
+                    badge: "أمان",
+                    images: [
+                        "https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=600&q=80"
+                    ]
+                }
+            ]
+        };
+
+        let storeData = JSON.parse(localStorage.getItem('nsr_kv_data')) || defaultStoreData;
+
+        function renderStore() {
+            const mainGrid = document.getElementById('mainProductsGrid');
+            const accGrid = document.getElementById('accessoriesGrid');
+            const productSelect = document.getElementById('productSelect');
+
+            mainGrid.innerHTML = '';
+            accGrid.innerHTML = '';
+            productSelect.innerHTML = '';
+
+            document.getElementById('floatWaBtn').href = `https://wa.me/${storeData.whatsapp}?text=${encodeURIComponent("السلام عليكم، بغيت نستفسر على منتجات NSR KV")}`;
+
+            storeData.products.forEach(p => {
+                const cardHTML = `
+                    <div class="product-card" data-id="${p.id}">
+                        <div class="product-badge-top">${p.badge}</div>
+                        <div>
+                            <div class="gallery-container">
+                                <img src="${p.images[0]}" class="main-img" id="img-${p.id}" alt="${p.name}">
+                            </div>
+                            <div class="thumbnails-row">
+                                ${p.images.map((img, idx) => `
+                                    <img src="${img}" class="thumb ${idx === 0 ? 'active' : ''}" onclick="switchImg('${p.id}', '${img}', this)">
+                                `).join('')}
+                            </div>
+                            <h4 class="product-title">${p.name}</h4>
+                            <div class="highlight-feature">${p.highlight}</div>
+                            <p class="product-desc">${p.desc}</p>
+                        </div>
+                        <div>
+                            <div class="price-box">
+                                <span class="price-amount">${p.price}</span>
+                                <span class="price-currency">DH</span>
+                            </div>
+                            <button class="btn-order" onclick="selectAndScroll('${p.id}')">
+                                <i class="fa-solid fa-cart-arrow-down"></i> اطلب الآن
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                if (p.category === 'main') {
+                    mainGrid.innerHTML += cardHTML;
+                } else {
+                    accGrid.innerHTML += cardHTML;
+                }
+
+                const opt = document.createElement('option');
+                opt.value = p.id;
+                opt.textContent = `${p.name} - (${p.price} DH)`;
+                productSelect.appendChild(opt);
+            });
+
+            updateSummary();
+            init3DTilt();
+        }
+
+        function switchImg(prodId, src, thumbEl) {
+            document.getElementById(`img-${prodId}`).src = src;
+            const parent = thumbEl.parentElement;
+            parent.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+            thumbEl.classList.add('active');
+        }
+
+        function selectAndScroll(prodId) {
+            document.getElementById('productSelect').value = prodId;
+            updateSummary();
+            document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updateSummary() {
+            const prodId = document.getElementById('productSelect').value;
+            const qty = parseInt(document.getElementById('quantitySelect').value);
+            const product = storeData.products.find(p => p.id === prodId);
+
+            if (product) {
+                const total = product.price * qty;
+                document.getElementById('sumProdName').textContent = `${product.name} (عدد ${qty})`;
+                document.getElementById('sumTotal').textContent = `${total} DH`;
+            }
+        }
+
+        function handleOrderSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const address = document.getElementById('custAddress').value.trim();
+            const prodId = document.getElementById('productSelect').value;
+            const qty = document.getElementById('quantitySelect').value;
+            const product = storeData.products.find(p => p.id === prodId);
+            const total = product.price * parseInt(qty);
+
+            const msg = `*طلب جديد من متجر NSR KV* ⚡%0A%0A` +
+                        `👤 *الاسم:* ${name}%0A` +
+                        `📞 *الهاتف:* ${phone}%0A` +
+                        `📍 *العنوان:* ${address}%0A%0A` +
+                        `📦 *المنتج:* ${product.name}%0A` +
+                        `🔢 *الكمية:* ${qty}%0A` +
+                        `💰 *المجموع:* ${total} DH (التوصيل مجاني)%0A` +
+                        `🛡️ *الضمان:* 7 أيام استرجاع كامل%0A%0A` +
+                        `المرجو تأكيد الطلب لإرسال السلعة وشكراً!`;
+
+            window.open(`https://wa.me/${storeData.whatsapp}?text=${msg}`, '_blank');
+        }
+
+        function init3DTilt() {
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const rotateX = (rect.height / 2 - y) / 15;
+                    const rotateY = (x - rect.width / 2) / 15;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0deg)`;
+                });
+            });
+        }
+
+        function openAdminModal() {
+            const pass = prompt("أدخل كلمة سر لوحة التحكم:");
+            if (pass === "LRG") {
+                document.getElementById('adminModal').style.display = 'block';
+                document.getElementById('adminWhatsapp').value = storeData.whatsapp;
+                
+                const list = document.getElementById('adminProductsList');
+                list.innerHTML = '';
+                storeData.products.forEach((p, idx) => {
+                    list.innerHTML += `
+                        <div class="admin-product-row">
+                            <strong>${p.name}</strong>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="text" class="form-control" value="${p.name}" id="adm-name-${idx}" placeholder="اسم المنتج">
+                                <input type="number" class="form-control" value="${p.price}" id="adm-price-${idx}" placeholder="الثمن بالدرهم" style="width: 120px;">
+                            </div>
+                            <input type="text" class="form-control" value="${p.highlight}" id="adm-hl-${idx}" placeholder="الميزة الرئيسية">
+                            <input type="text" class="form-control" value="${p.images.join(', ')}" id="adm-imgs-${idx}" placeholder="روابط الصور مفصولة بفاصلة">
+                        </div>
+                    `;
+                });
+            } else if (pass !== null) {
+                alert("كلمة السر غير صحيحة!");
+            }
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').style.display = 'none';
+        }
+
+        function saveAdminChanges() {
+            storeData.whatsapp = document.getElementById('adminWhatsapp').value.trim();
+            storeData.products.forEach((p, idx) => {
+                p.name = document.getElementById(`adm-name-${idx}`).value.trim();
+                p.price = parseFloat(document.getElementById(`adm-price-${idx}`).value);
+                p.highlight = document.getElementById(`adm-hl-${idx}`).value.trim();
+                const imgsRaw = document.getElementById(`adm-imgs-${idx}`).value;
+                p.images = imgsRaw.split(',').map(s => s.trim()).filter(s => s.length > 0);
+            });
+
+            localStorage.setItem('nsr_kv_data', JSON.stringify(storeData));
+            
+            if (window.db) {
+                window.setDoc(window.doc(window.db, "artifacts", "nsrkv-app", "public", "data", "products", "config"), storeData)
+                    .then(() => alert("تم حفظ ونشر التغييرات على جميع الأجهزة بنجاح!"))
+                    .catch(() => alert("تم الحفظ محلياً بنجاح!"));
+            } else {
+                alert("تم الحفظ محلياً بنجاح!");
+            }
+
+            renderStore();
+            closeAdminModal();
+        }
+
+        // Canvas Particle Background
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.8;
+                this.vy = (Math.random() - 0.5) * 0.8;
+                this.radius = Math.random() * 1.8 + 0.5;
+                this.color = Math.random() > 0.5 ? '#ffc107' : '#e63946';
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 50; i++) particles.push(new Particle());
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((p, i) => {
+                p.update();
+                p.draw();
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (dist < 100) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(230, 57, 70, ${1 - dist / 100})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(animateCanvas);
+        }
+
+        animateCanvas();
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderStore();
+            setTimeout(() => {
+                if (window.db) {
+                    window.onSnapshot(window.doc(window.db, "artifacts", "nsrkv-app", "public", "data", "products", "config"), (docSnap) => {
+                        if (docSnap.exists()) {
+                            storeData = docSnap.data();
+                            localStorage.setItem('nsr_kv_data', JSON.stringify(storeData));
+                            renderStore();
+                        }
+                    });
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
